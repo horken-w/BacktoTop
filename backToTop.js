@@ -4,7 +4,8 @@
 
 		var defaults={
 			className: 'btn_position',
-			el_tag: 'body',
+			el_tag: '',
+			el_id: '',
 			text: 'back to top',
 			durinTime: 550
 		}
@@ -12,7 +13,16 @@
 			this.options=extendDefaults(defaults, arguments[0]);
 		}
 		appendToEl.call(this);
-	};
+		$('.backtop').on('click', this, function(e){
+			e.preventDefault();
+			if(e.data.options.el_tag !== ''){
+				$(e.data.options.el_tag).animate({scrollTop: 0}, e.data.options.durinTime);
+			}else if(e.data.options.el_id !== ''){
+				$(e.data.options.el_id).animate({scrollTop: 0}, e.data.options.durinTime);
+			};
+			
+		})
+	}
 	function appendToEl(){
 		docFrag=document.createDocumentFragment();
 		this.btn=document.createElement('a');
@@ -20,7 +30,11 @@
 		this.btn.href='#';
 		this.btn.innerHTML=this.options.text;
 		docFrag.appendChild(this.btn);
-		document.getElementsByTagName(this.options.el_tag).appendChild(docFrag);
+		if(this.options.el_tag !== ''){
+			document.getElementsByTagName(this.options.el_tag)[0].appendChild(docFrag);
+		}else if(this.options.el_id !== ''){
+			document.getElementById(this.options.el_id).appendChild(docFrag);
+		};
 	}
 	function extendDefaults(source, properties){
 		var property;
@@ -33,14 +47,11 @@
 	}
 })(window, document);
 
-var wraper = document.getElementById('top');
+var wraper = document.getElementById('top').id;
 
 var topbtn = new scrollBtn({
-  el_tag: wraper,
-  text: '回到上層'
+    el_tag: '', //放在標籤上 ex body
+    el_id: wraper, //放在id上 ex top   
+    text: '回到上層' //顯示文字
 });
 
-
-// triggerButton.addEventListener('click', function() {
-//   topbtn.open();
-// });
