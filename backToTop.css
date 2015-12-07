@@ -15,18 +15,16 @@
 	padding: 1em;
 	opacity: 0;
 	transition: 500ms opacity ease;
-	transform: translateY(-30%);
 	pointer-events: none;
 }
 .backtop:hover {	
 	background-color: hsl(0, 0%, 62%);
 	opacity: 1;
 	bottom: 5.5em;
-	transition: 500ms bottom ease;
+	transition: 200ms bottom ease;
 }
 .show{
 	opacity: 0.6;
     transition: 500ms opacity ease;
-	transform: translateY(-60%);
 	pointer-events: auto;
 }
