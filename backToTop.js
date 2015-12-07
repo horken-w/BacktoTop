@@ -24,8 +24,8 @@
 		})
 		$(window).on('scroll', function(){
 			if($(this).scrollTop() > 20){
-				$('.backtop').removeClass('hide').addClass('show');
-			}else $('.backtop').removeClass('show').addClass('hide');
+				$('.backtop').addClass('show');
+			}else $('.backtop').removeClass('show');
 		})
 	}
 	function appendToEl(){
