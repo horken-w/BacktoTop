@@ -3,7 +3,7 @@
 		this.btn=null;
 
 		var defaults={
-			className: 'btn_position',
+			className: '',
 			el_tag: '',
 			el_id: '',
 			text: 'back to top',
@@ -16,11 +16,16 @@
 		$('.backtop').on('click', this, function(e){
 			e.preventDefault();
 			if(e.data.options.el_tag !== ''){
-				$(e.data.options.el_tag).animate({scrollTop: 0}, e.data.options.durinTime);
+				$(e.data.options.el_tag).stop().animate({scrollTop: 0}, e.data.options.durinTime);
 			}else if(e.data.options.el_id !== ''){
-				$(e.data.options.el_id).animate({scrollTop: 0}, e.data.options.durinTime);
+				$(e.data.options.el_id).stop().animate({scrollTop: 0}, e.data.options.durinTime);
 			};
 			
+		})
+		$(window).on('scroll', function(){
+			if($(this).scrollTop() > 20){
+				$('.backtop').removeClass('hide').addClass('show');
+			}else $('.backtop').removeClass('show').addClass('hide');
 		})
 	}
 	function appendToEl(){
@@ -50,8 +55,9 @@
 var wraper = document.getElementById('top').id;
 
 var topbtn = new scrollBtn({
-    el_tag: '', //放在標籤上 ex body
-    el_id: wraper, //放在id上 ex top   
-    text: '回到上層' //顯示文字
+    el_tag: 'body', //放在標籤上 ex body
+    el_id: '', //放在id上 ex top   
+    text: '回到最上層', //顯示文字
+    className: 'btn_position' //外掛class
 });
 
