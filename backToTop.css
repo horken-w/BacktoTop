@@ -1,7 +1,13 @@
+.btn_position{
+	bottom: 5em;
+	right: 6em;
+}
+
 .backtop {
 	position: fixed;
-	bottom: 6em;
-	right: 20em;
+	bottom: 5em;
+	right: 6em;
+	border-radius: 50%;
 	text-decoration: none;
 	color: hsl(0, 0%, 0%);
 	background-color: hsla(0, 0%, 95%, 0.9);
@@ -9,18 +15,18 @@
 	padding: 1em;
 	opacity: 0;
 	transition: 500ms opacity ease;
-	transform: translateY(-50%);
+	transform: translateY(-30%);
+	pointer-events: none;
 }
 .backtop:hover {	
 	background-color: hsl(0, 0%, 62%);
 	opacity: 1;
+	bottom: 5.5em;
+	transition: 500ms bottom ease;
 }
-.btn_position{
-	bottom: 8em;
-	right: 15em;
-}	
 .show{
 	opacity: 0.6;
     transition: 500ms opacity ease;
-	transform: translateY(0);
+	transform: translateY(-60%);
+	pointer-events: auto;
 }
