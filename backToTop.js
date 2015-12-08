@@ -52,7 +52,7 @@
 	}
 })(window, document);
 
-var wraper = document.getElementById('top').id;
+// var wraper = document.getElementById('top').id;
 
 var topbtn = new scrollBtn({
     el_tag: 'body', //放在標籤上 ex body
